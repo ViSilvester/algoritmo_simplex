@@ -259,15 +259,16 @@ def compilaSolucao(
             indices.append(i + 1)
             valores.append(0)
 
-    for i in range(len(indices) - 1):
-        if indices[i] > indices[i + 1]:
-            aux = indices[i]
-            indices[i] = indices[i + 1]
-            indices[i + 1] = aux
+    for j in range(len(indices) - 1):
+        for i in range(len(indices) - 1 - j):
+            if indices[i] > indices[i + 1]:
+                aux = indices[i]
+                indices[i] = indices[i + 1]
+                indices[i + 1] = aux
 
-            aux = valores[i]
-            valores[i] = valores[i + 1]
-            valores[i + 1] = aux
+                aux = valores[i]
+                valores[i] = valores[i + 1]
+                valores[i + 1] = aux
 
     soma = 0
     for i in range(len(coeficientesOriginais[0])):
